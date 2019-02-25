@@ -45,23 +45,16 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/example',
+    path: '/crop',
     component: Layout,
-    redirect: '/example/table',
-    name: 'example',
+    redirect: '/crop/index',
     meta: { title: '本地作物', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'index',
+        name: '本地作物',
+        component: () => import('@/views/crops/index'),
+        meta: { title: '本地作物', icon: 'example' }
       }
     ]
   },
@@ -69,10 +62,9 @@ export const constantRouterMap = [
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
-    name: 'Nested',
     meta: {
       title: '作物相关',
-      icon: 'nested'
+      icon: 'seed'
     },
     children: [
       {
@@ -127,86 +119,68 @@ export const constantRouterMap = [
   {
     path: '/farm',
     component: Layout,
+    name: '农事相关',
     redirect: '/nested/menu1',
-    name: 'Nested',
     meta: {
       title: '农事相关',
-      icon: 'nested'
+      icon: 'farm'
     },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () =>
-                  import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () =>
-                  import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'biocide',
+        name: '常用农药',
+        component: () => import('@/views/FarmRel/biocide'),
+        meta: { title: '常用农药' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
+        path: 'fertilizer',
+        name: '用肥指南',
+        component: () => import('@/views/FarmRel/fertilizer'),
+        meta: { title: '用肥指南' }
+      },
+      {
+        path: 'safety',
+        name: '安全知识',
+        component: () => import('@/views/FarmRel/safety'),
+        meta: { title: '安全知识' }
+      },
+      {
+        path: 'weather',
+        name: '天气灾害',
+        component: () => import('@/views/FarmRel/weather'),
+        meta: { title: '天气灾害' }
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/users',
     component: Layout,
+    redirect: '/users/index',
+    name: '用户管理',
+    meta: {
+      title: '用户管理',
+      icon: 'form'
+    },
     children: [
       {
         path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/users/index'),
         meta: { title: '用户管理', icon: 'form' }
       }
     ]
   },
 
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+  //       meta: { title: 'External Link', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   { path: '*', redirect: '/404', hidden: true }
 ]
