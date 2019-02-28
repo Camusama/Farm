@@ -1,7 +1,10 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
+    <div class="dashboard-text">测土配方</div>
+    <iframe src="http://touchcy.ccain.net/CTPF"
+            style="height:866px;
+            width:100%"
+            frameborder="0"></iframe>
   </div>
 </template>
 

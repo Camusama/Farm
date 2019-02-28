@@ -43,7 +43,19 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/dashboard',
+    component: Layout,
+    meta: { title: '测土配方', icon: 'example' },
+    children: [
+      {
+        name: '测土配方',
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: '测土配方', icon: 'home' }
+      }
+    ]
+  },
   {
     path: '/crop',
     component: Layout,
